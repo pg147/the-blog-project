@@ -23,7 +23,7 @@ export class AuthService {
                 return
             }
         } catch (error) {
-            console.log("Error creating account : ", error.message);
+            console.log("Appwrite :: Error creating account : ", error.message);
         }
     }
 
@@ -31,7 +31,7 @@ export class AuthService {
         try {
             return await this.account.createEmailPasswordSession(email, password);
         } catch (error) {
-            console.log("Error signing in : ", error.message)
+            console.log("Appwrite :: Error signing in : ", error.message)
         }
     }
 
@@ -39,7 +39,7 @@ export class AuthService {
         try {
             return await this.account.deleteSessions();
         } catch (error) {
-            console.log("Error logging out : ", error.message);
+            console.log("Appwrite :: Error logging out : ", error.message);
         }
     }
 
@@ -47,7 +47,7 @@ export class AuthService {
         try {
             return await this.account.get();
         } catch (error) {
-            console.log("Error fetching user : ", error.message);
+            console.log("Appwrite :: Error fetching user : ", error.message);
         }
 
         return null;
