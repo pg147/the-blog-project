@@ -14,7 +14,7 @@ import { useDispatch } from "react-redux";
 import authService from "../appwrite/auth.js";
 
 // Auth Slice method
-import { login } from "../store/authSlice.js";
+import { login as AuthLogin } from "../store/authSlice.js";
 
 // Components
 import { Input, Button, Logo } from "./index.js";
@@ -28,13 +28,14 @@ export default function Login() {
     const { register, handleSubmit } = useForm();
     const [error, setError] = useState("");
 
-    const handleLogin = async (data) => {
+    const login = async (data) => {
+        setError("");
         try {
             const session = await authService.loginUser(data);
 
             if (session) {
                 const userData = authService.getUser();
-                if (userData) dispatch(login(userData));
+                if (userData) dispatch(AuthLogin(userData));
                 navigate("/");
             }
         } catch (error) {
@@ -54,7 +55,7 @@ export default function Login() {
             {error.length > 0 && <p className="text-sm font-medium text-red-700">Oops ! {error}</p>}
 
             {/* Form */}
-            <form onSubmit={handleSubmit} className="mt-6">
+            <form onSubmit={handleSubmit(login)} className="mt-6">
                 {/* Email */}
                 <Input
                     icon={<MailIcon />}
