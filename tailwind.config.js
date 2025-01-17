@@ -13,7 +13,8 @@ export default {
         "bold" : ["Gilroy-Bold"]
       },
       colors: {
-        primary: "#FE416F"
+        primary: "#FE416F",
+        stroke: "#EDEDED"
       },
       boxShadow: {
         intense: "0px 0px 16px rgba(17, 17, 26, 0.1)"
