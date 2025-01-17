@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import authService from "../appwrite/auth";
 
 const initialState = {
     status: false,
@@ -11,23 +10,14 @@ const authSlice = createSlice({
     initialState,
     reducers: {
         login: (state, action) => {
-            const user = action.payload;
-            const session = authService.loginUser(user);
-
-            if (session) {
-                state.status = true
-                state.userData = user
-            } else return;
+            state.status = true
+            state.userData = action.payload
         },
 
         logout: (state) => {
-            const sessionTerminated = authService.logoutUser();
-
-            if (sessionTerminated) {
-                state.status = false,
-                state.userData = null
-            } else return;
-        } 
+            state.status = false
+            state.userData = null
+        }
     }
 });
 
