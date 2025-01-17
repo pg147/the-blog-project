@@ -9,7 +9,7 @@ import Logo from "../Logo";
 import LogoutButton from "./LogoutButton";
 
 export default function Header() {
-  const authStatus = useSelector((state) => state.auth.status);
+  const authStatus = useSelector((state) => state.auth?.status);
   const navigate = useNavigate();
 
   const navItems = [
