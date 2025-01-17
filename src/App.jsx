@@ -1,5 +1,5 @@
 // React Imports
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
 
 // React Redux imports
 import { useDispatch } from "react-redux";
@@ -12,6 +12,9 @@ import { login, logout } from "./store/authSlice";
 
 // Icon library - Lucide React
 import { Loader2 } from "lucide-react";
+
+// Components
+import { Header } from "./components";
 
 export default function App() {
   const [loading, setLoading] = useState(true);
@@ -29,13 +32,14 @@ export default function App() {
       .finally(() => setLoading(false));
   }, []);
 
+  // Return loader if Loading State is true
   if (loading) return <div className="h-screen w-full bg-white flex items-center justify-center">
-    <Loader2 className="text-primary size-6 animate-spin" />
+    <Loader2 className="text-primary size-8 md:size-10 animate-spin" />
   </div>
 
   return (
     <div>
-      <h1 className="font-medium">Hi from The Blog Project !</h1>
+      <Header />
     </div>
   )
 }
