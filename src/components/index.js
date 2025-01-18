@@ -5,6 +5,7 @@ import Button from "./Button";
 import Input from "./Input";
 import Select from "./Select";
 import Postcard from "./Postcard";
+import PostForm from "./Post-Form/PostForm";
 import RTE from "./RTE";
 
-export { Logo, Header, Footer, Button, Input, Select, Postcard, RTE };
+export { Logo, Header, Footer, Button, Input, Select, Postcard, RTE, PostForm };
