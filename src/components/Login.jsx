@@ -20,7 +20,7 @@ import { login as AuthLogin } from "../store/authSlice.js";
 import { Input, Button, Logo } from "./index.js";
 
 // Custom Icons
-import { LockIcon, MailIcon } from "../constants/icons.js";
+import { LockIcon, MailIcon } from "../constants/icons.jsx";
 
 export default function Login() {
     const navigate = useNavigate();
