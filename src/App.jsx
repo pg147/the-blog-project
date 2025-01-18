@@ -10,11 +10,11 @@ import authService from "./appwrite/auth";
 // Auth Slice Methods
 import { login, logout } from "./store/authSlice";
 
-// Icon library - Lucide React
-import { Loader2 } from "lucide-react";
-
 // Components
 import { Header } from "./components";
+
+// Loader
+import Loader from "./components/Loader";
 
 export default function App() {
   const [loading, setLoading] = useState(true);
@@ -30,12 +30,10 @@ export default function App() {
       })
       .catch((error) => console.log(error))
       .finally(() => setLoading(false));
-  }, []);
+  }, [dispatch]);
 
   // Return loader if Loading State is true
-  if (loading) return <div className="h-screen w-full bg-white flex items-center justify-center">
-    <Loader2 className="text-primary size-8 md:size-10 animate-spin" />
-  </div>
+  if (loading) return <Loader />
 
   return (
     <div>
