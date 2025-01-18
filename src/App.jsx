@@ -4,6 +4,9 @@ import { useEffect, useState } from "react";
 // React Redux imports
 import { useDispatch } from "react-redux";
 
+// Outlet
+import { Outlet } from "react-router-dom";
+
 // Auth.js from Appwrite
 import authService from "./appwrite/auth";
 
@@ -38,6 +41,7 @@ export default function App() {
   return (
     <div>
       <Header />
+      <Outlet />
     </div>
   )
 }
